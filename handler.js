@@ -28,21 +28,21 @@ module.exports = {
         global.fake = global.fake
         global.fkontak = global.fkontak
         global.doc = pickRandom(["application/vnd.ms-excel", "application/vnd.openxmlformats-officedocument.presentationml.presentation", "application/msword", "application/pdf"])
-        global.img = 'https://telegra.ph/file/0c567eac403737766688f.jpg'
+        global.img = 'https://telegra.ph/file/cadda8b797bff386c1536.jpg'
         global.fla = pickRandom(global.flaaa)
         global.namabot = conn.user.name
-        global.packname = '© CUTE IQ-MD'
-        global.author = 'Made By Ziv San © 2022'
+        global.packname = '© AnimeBotLovers'
+        global.author = 'Made By Zaky © 2022'
         global.packname2 = 'Made With'
-        global.author2 = 'Cute Bot By Ziv San © 2022'
-        global.wm3 = '·͟͟͟͟͟͟͞͞͞͞͞͞Made By Ziv San˚'
-        global.wm2 = '© CUTE IQ-MD' + ' ' + 'By Ziv San'
-        global.wm = '© CUTE IQ-MD'
+        global.author2 = 'AnimeLovers Bot By Zaky © 2022'
+        global.wm3 = '·͟͟͟͟͟͟͞͞͞͞͞͞Made By Syah˚'
+        global.wm2 = '© Anime Lovers' + ' ' + 'By Zaky'
+        global.wm = '© Made By Zaky'
         global.colong1 = 'Ciss 📸'
-        global.colong2 = 'By Haori & Ziv San'
+        global.colong2 = 'By Haori & Syah'
         global.kontak2 = [
-        ['16199961931', 'Ziv San', 'Creator Bot', 'Zivsan@support.com', true],
-        ['6282179137771', 'CUTE IQ-MD', 'Bot WhatsApp', 'Just Bot', true]
+        ['6281365255567', 'Syah', 'OWNER SYAH', 'Syah1@support.com', true],
+        ['6282289304381', 'CUTE IQ-MD', 'Bot WhatsApp', 'Just Bot', true]
         ]
         global.bg = await (await fetch(img)).buffer()
         global.time = require('moment-timezone').tz('Asia/Jakarta').format('HH:mm:ss')
@@ -629,44 +629,66 @@ module.exports = {
                 if (chat.welcome) {
                     let groupMetadata = await this.groupMetadata(id) || (conn.chats[id] || {}).metadata
                     for (let user of participants) {
-                        let pp = 'https://telegra.ph/file/2d06f0936842064f6b3bb.png'
+                        let pp = 'https://telegra.ph/file/24fa902ead26340f3df2c.png'
                         try {
                             pp = await this.profilePictureUrl(user, 'image')
                         } catch (e) {
 
                         } finally {
                             text = (action === 'add' ? (chat.sWelcome || this.welcome || conn.welcome || 'Welcome, @user!').replace('@subject', await this.getName(id)).replace('@desc', groupMetadata.desc ? String.fromCharCode(8206).repeat(4001) + groupMetadata.desc : '') :
-                                (chat.sBye || this.bye || conn.bye || 'Bye, @user!')).replace(/@user/g, '@' + user.split`@`[0])
-                            let wel = API('hardianto', '/api/welcome3', {
+                                (chat.sBye || this.bye || conn.bye || 'Bye, @user!')).replace('@user', await this.getName(user))
+                            let wel = API('males', '/welcome2', {
                                 profile: pp,
-                                name: await this.getName(user),
-                                bg: 'https://telegra.ph/file/a36809ab7862a77d18ac0.jpg',
-                                namegb: await this.getName(id),
-                                member: groupMetadata.participants.length
+                                username: await this.getName(user),
+                                background: 'https://telegra.ph/file/c538a6f5b0649a7861174.png',
+                                groupname: await this.getName(id),
+                                membercount: groupMetadata.participants.length
                             })
-                            let lea = API('hardianto', '/api/goodbye3', {
+                            let lea = API('males', '/goodbye2', {
                                 profile: pp,
-                                name: await this.getName(user),
-                                bg: 'https://telegra.ph/file/a36809ab7862a77d18ac0.jpg',
-                                namegb: await this.getName(id),
-                                member: groupMetadata.participants.length
+                                username: await this.getName(user),
+                                background: 'https://telegra.ph/file/c538a6f5b0649a7861174.png',
+                                groupname: await this.getName(id),
+                                membercount: groupMetadata.participants.length
                             })
-                            /*await this.send3TemplateButtonImg(id, action === 'add' ? wel : lea, text, wm, action === 'add' ? 'selamat datang' : 'sampai jumpa', action === 'add' ? '.intro' : 'FokusID')*/
-   await conn.sendButtonDoc(id, text, wm, action == 'add' ? 'selamat datang' : 'sampai jumpa', action === 'add' ? '.intro' : 'Cute IQ-MD', fkontak,{
+                             //await this.sendButtonLoc(id, await conn.resize(pp, 300, 200), text, wm, action === 'add' ? 'Selamat Datang' : 'Sampai Jumpa', action === 'add' ? '.intro' : '-')  
+              let flu = `${pickRandom(['https://www6.flamingtext.com/net-fu/proxy_form.cgi?&imageoutput=true&script=sketch-name&doScale=true&scaleWidth=800&scaleHeight=500&fontsize=100&fillTextType=1&fillTextPattern=Warning!&text=', 'https://www6.flamingtext.com/net-fu/proxy_form.cgi?&imageoutput=true&script=sketch-name&doScale=true&scaleWidth=800&scaleHeight=500&fontsize=100&fillTextType=1&fillTextPattern=Warning!&fillColor1Color=%23f2aa4c&fillColor2Color=%23f2aa4c&fillColor3Color=%23f2aa4c&fillColor4Color=%23f2aa4c&fillColor5Color=%23f2aa4c&fillColor6Color=%23f2aa4c&fillColor7Color=%23f2aa4c&fillColor8Color=%23f2aa4c&fillColor9Color=%23f2aa4c&fillColor10Color=%23f2aa4c&fillOutlineColor=%23f2aa4c&fillOutline2Color=%23f2aa4c&backgroundColor=%23101820&text='])}`
+              let ori = await conn.resize(await (await fetch(flu + `HAI`)).buffer(), 300, 200)
+              let kelu = await conn.resize(await (await fetch(flu + `BYE`)).buffer(), 300, 200)
+              let wibh = moment.tz('Asia/Jakarta').format('HH')
+              let wibm = moment.tz('Asia/Jakarta').format('mm')
+              let wibs = moment.tz('Asia/Jakarta').format('ss')
+              let wktu = `${wibh} H ${wibm} M ${wibs} S`
+              const ftroli = {
+    key : {
+    remoteJid: 'status@broadcast',
+    participant : '0@s.whatsapp.net'
+    },
+    message: {
+    orderMessage: {
+    itemCount : 2022,
+    status: 1,
+    surface : 1,
+    message: `𝗧𝗜𝗠𝗘 : ${wktu}`, 
+    orderTitle: `▮Zivsan ▸`,
+    thumbnail: action === 'add' ? ori : kelu , //Gambarnye
+    sellerJid: '0@s.whatsapp.net' 
+    }
+    }
+    }
+ await conn.sendButtonDoc(id, text, wm, action == 'add' ? 'Selamat Datang' : 'Sampai Jumpa', action === 'add' ? '.intro' : 'Ziv San', ftroli,{
   contextInfo: {mentionedJid: [user],
-    externalAdReply :{
-    mediaUrl: linkyt,
-    mediaType: 2,
-    description: deslink , 
-    title: titlink,
-    body: wm,
-    thumbnail: await(await fetch(action === 'add' ? wel : lea)).buffer(),
-    sourceUrl: linkgc
+    externalAdReply :{ showAdAttribution: true,
+    mediaType: 1, 
+    title: action === 'add' ? 'Selamat Datang Kak!' : 'Yahh.. kok keluar :‹',
+    thumbnail: await(await fetch(pp)).buffer(),
+    renderLargerThumbnail: true, 
+    sourceUrl: 'https://www.tiktok.com/@fory_whitecattiktok?_t=8VOIcAQQyCQ&_r=1'
      }}
-  })
-                        }
-                    }
-                }
+    })
+                         } 
+                     } 
+                 }
                 break
 
             case 'promote':

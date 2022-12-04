@@ -4,8 +4,8 @@ global.mods = JSON.parse(fs.readFileSync('./src/moderator.json')) // Want some h
 global.thumbt = global.img
 global.fsx = 999999999999
 global.kontak = [
-['16199961931', 'Ziv San', true], 
-['6282179137771', 'HAORI IQ-MD', true] 
+['6281365255567', 'ZakY', true], 
+['6282289304381', 'CUTE IQ MD', true] 
 ]
 global.APIs = { // API Prefix
   // name: 'https://website'
@@ -19,29 +19,34 @@ global.APIs = { // API Prefix
   neoxr: 'https://api.neoxr.eu.org',
   amel: 'https://melcanz.com',
   hardianto: 'https://hardianto.xyz',
-  lol: 'https://api.lolhuman.xyz'
+  lol: 'https://api.lolhuman.xyz',
+  zens: 'https://zenzapis.xyz',
+  violetics : 'https://violetics.pw',
+  males: 'https://malest.herokuapp.com'
 }
 global.APIKeys = { // APIKey Here
   // 'https://website': 'apikey'
   'https://api.neoxr.eu.org': 'yntkts',
-  'https://api.xteam.xyz': 'Apikeys',
-  'https://melcanz.com': 'Apikeys',
-  'https://api.lolhuman.xyz': 'Apikeys',
+  'https://api.xteam.xyz': 'Dawnfrostkey',
+  'https://melcanz.com': 'melcantik',
+  'https://api.lolhuman.xyz': 'SadTeams',
   'https://zahirr-web.herokuapp.com': 'zahirgans',
   'https://api.zeks.me': 'apivinz',
   'https://pencarikode.xyz': 'pais',
   'https://hardianto.xyz': 'hardianto',
+  'https://zenzapis.xyz': 'b86cd34ea',
+  'https://violetics.pw': 'beta',
   'https://leyscoders-api.herokuapp.com': 'dappakntlll'
 }
 
 global.linkyt = 'https://youtu.be/60yZO4UQKdI'
-global.WM = '𝑴𝒚𝑩𝒐𝒕-𝑴𝒖𝒍𝒕𝒊 𝑫𝒆𝒗𝒊𝒄𝒆 𝑩𝒚 𝚃𝚑𝚎.𝚂𝚊𝚍.𝙱𝚘𝚢𝟶𝟷'
-global.linkgc = 'https://chat.whatsapp.com/Kyz397uqvJZ5AvX7I4BSID'
+global.WM = 'Anime Lovers V2 By Zaky'
+global.linkgc = 'https://chat.whatsapp.com/EUvkNwsKYXw9seQ9s8Wby8'
 global.linkig = 'https://www.instagram.com/the.sad.boy01'
 global.deslink = ''
-global.logo = 'https://telegra.ph/file/1665521d176fbf172d735.jpg'
-global.titlink = 'Folllow me on Instagram'
-global.bodlink = '@the.sad.boy01'
+global.logo = 'https://telegra.ph/file/001123748fc80b0bb5532.png'
+global.titlink = 'Sv Nomor Owner Yah(≧▽≦)'
+global.bodlink = 'SV Zaky'
 
 global.wait = '_*𝐬𝐞𝐝𝐚𝐧𝐠 𝐝𝐢 𝐩𝐫𝐨𝐬𝐞𝐬 ...*_'
 global.eror = '_*мααƒ ѕєяνєя тι∂αк ѕтαвιℓ..*_'
