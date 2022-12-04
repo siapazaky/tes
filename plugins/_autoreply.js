@@ -55,7 +55,7 @@ let fs = require('fs')
      contextInfo: { forwardingScore: 99999, isForwarded: true, 
          externalAdReply: { 
                  sourceUrl: 'https://vt.tiktok.com/ZSRRmS8vh/', 
-             title: 'Ziv San UwU', 
+             title: 'Syah Uwu', 
              body: '', 
            thumbnail: await (await fetch('https://telegra.ph/file/de1678007a368fe66c052.jpg')).buffer() 
          } 
@@ -67,15 +67,15 @@ let fs = require('fs')
       if (new Date() * 1 - setting.status > 1000) {  
           let _uptime = process.uptime() * 1000  
           let uptime = clockString(_uptime)  
-   const ultah = new Date('April 4, 2023 23:59:59')
+   const ultah = new Date('Februari 28, 2023 23:59:59')
     const sekarat = new Date().getTime() 
     const Kurang = ultah - sekarat
     const ohari = Math.floor( Kurang / (1000 * 60 * 60 * 24));
     const ojam = Math.floor( Kurang % (1000 * 60 * 60 * 24) / (1000 * 60 * 60))
     const onet = Math.floor( Kurang % (1000 * 60 * 60) / (1000 * 60))
     const detek = Math.floor( Kurang % (1000 * 60) / 1000)
-        await this.setBio(`☘️ Ultah Ziv San : ${ohari} Hari ${ojam} Jam ${onet} Menit ${detek} Detik
-⏲️ Runtime: ${uptime} | 🛰 Mode: ${global.opts['self'] ? 'Private' : setting.groupOnly ? 'Only Group' : 'Public'} | 💌 Made Ziv San`).catch(_ => _)  
+        await this.setBio(`☘️ Ultah Syah : ${ohari} Hari ${ojam} Jam ${onet} Menit ${detek} Detik
+⏲️ Runtime: ${uptime} | 🛰 Mode: ${global.opts['self'] ? 'Private' : setting.groupOnly ? 'Only Group' : 'Public'} | 💌 Made Syah`).catch(_ => _)  
           setting.status = new Date() * 1  
       } 
   

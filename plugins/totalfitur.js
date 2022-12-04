@@ -4,7 +4,7 @@ let pp = await conn.profilePictureUrl(sender, 'image').catch((_) => "https://tel
 let totalf = Object.values(global.plugins).filter(
     (v) => v.help && v.tags
   ).length;
-conn.sendFile(m.chat, 'http://fzcdn.cf/file/dMdcL-HTKpb~wdWBsUM9.webp', 'haori.mp3', null, m, true, {
+conn.sendFile(m.chat, 'https://github.com/oktetosupport/bot/blob/master/sticker/ynkts4.webp?raw=true', 'haori.mp3', null, m, true, {
 type: 'audioMessage', 
 ptt: true, contextInfo: {
         externalAdReply: { showAdAttribution: true, title: `Total Fitur Bot Saat Ini: ${totalf}`, body: `${pickRandom(['Follow Tiktok My Bestie'])}`, sourceUrl: 'https://www.tiktok.com/@fory_whitecattiktok?_t=8V5TGON5rgv&_r=1', thumbnail: await (await fetch(pp)).buffer(),}} 
