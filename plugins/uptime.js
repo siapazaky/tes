@@ -1,3 +1,4 @@
+let { generateWAMessageFromContent } = require('@adiwajshing/baileys')
 let handler = async (m, { usedPrefix, command }) => {
 let _uptime = process.uptime() * 1000
 let uptime = clockString(_uptime)
@@ -5,12 +6,25 @@ let fetch = require("node-fetch")
 let who = m.sender
 let time = require('moment-timezone').tz('Asia/Jakarta').format('HH:mm:ss')
 let runnya = `
-*───「 RUNTIME BOT 」───*
+*───「 ʀᴜɴᴛɪᴍᴇ 」───*
 
-⏲️ Waktu: ${time} WIB
-💌 Aktif Selama : ${uptime}
-🌹 Tag : @${who.split`@`[0]}`
-conn.sendButton(m.chat, runnya, wm, 'Menu', '.menu', { key: { fromMe: false, remoteJid: 'status@broadcast', participant: '0@s.whatsapp.net' }, message: { orderMessage: { message: `Simpel Bot Whatsapp`, itemCount: 99999, thumbnail: await (await fetch('https://telegra.ph/file/dd8510a719c854da39483.jpg')).buffer(),}}})
+*⏰ ᴡᴀᴋᴛᴜ : ${time} ᴡɪʙ*
+*🪫 ᴀᴋᴛɪꜰ ꜱᴇʟᴀᴍᴀ : ${uptime}*`
+
+let zaky = `©made by zaky` 
+let prep = generateWAMessageFromContent(m.chat, { orderMessage: { 
+itemCount: -10062007, status: 500,
+surface: 999,
+message: runnya,
+description: '^^',
+orderTitle: 'Hehe',
+token: '9',
+curreyCode: 'IDR',
+totalCurrencyCode: '>〰<',
+totalAmount1000: '1000000',
+sellerJid: '17608914335@s.whatsapp.net',
+thumbnail: await (await fetch('https://telegra.ph/file/014c275d32588191c040b.jpg')).buffer()}}, {quoted: m})
+conn.relayWAMessage(prep)
 }
 handler.help = ['runtime']
 handler.tags = ['info']
