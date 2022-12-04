@@ -15,9 +15,9 @@ await conn.reply(m.chat, `Downloading media from Tiktok`, 0, {
     sourceUrl: linkgc
      }}
   })
-    let url = `https://api.lolhuman.xyz/api/tiktokwm?apikey=9b817532fadff8fc7cb86862&url=${args[0]}`
+    let url = `https://api.lolhuman.xyz/api/tiktokmusic?apikey=SadTeams&url=${args[0]}`
 let txt = `🚀 *Link:* ${await(await axios.get(`https://tinyurl.com/api-create.php?url=${args[0]}`)).data}` 
-    await conn.sendFile(m.chat, `https://api.lolhuman.xyz/api/tiktokwm?apikey=9b817532fadff8fc7cb86862&url=${args[0]}`, 'tiktokaudio.mp3', `
+    await conn.sendFile(m.chat, `https://api.lolhuman.xyz/api/tiktokmusic?apikey=SadTeams&url=${args[0]}`, 'tiktokmusic.mp3', `
 ┏┉━━━━━━━━━━━❏
 ┆ *YOUTUBE MP3*
 ├┈┈┈┈┈┈┈┈┈┈┈
@@ -26,7 +26,7 @@ let txt = `🚀 *Link:* ${await(await axios.get(`https://tinyurl.com/api-create.
 ┆• *📥 Ukuran File:* 
 └❏
 `.trim(), m, null, {
-   document: { url: `https://api.lolhuman.xyz/api/tiktokwm?apikey=9b817532fadff8fc7cb86862&url=${args[0]}`}, mimetype: 'audio/mpeg', fileName: 'tiktok.mp3', conntextInfo: {
+   document: { url: `https://api.lolhuman.xyz/api/tiktokmusic?apikey=SadTeams&url=${args[0]}`}, mimetype: 'audio/mpeg', fileName: 'tiktok.mp3', conntextInfo: {
         externalAdReply: {
             title: '▶︎ ━━━━━━━•────────────────── ', 
             body: 'Now Playing...',
