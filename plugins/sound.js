@@ -3,22 +3,22 @@ let fs = require('fs')
 const delay = time => new Promise(res => setTimeout(res, time))
 let moment = require('moment-timezone')
 async function handler(m, {command}) {
-	let res = await fetch(`https://github.com/Zivfurr/HAORI-API/raw/main/sound/${command}.mp3`)
+	let res = await fetch(`https://github.com/zakybang/RULL-API/raw/main/sound/${command}.mp3`)
 json = await res.buffer()
- conn.sendFile(m.chat, 'https://vio.wtf/uploads/1661398126172-haori.webp', 'haori.mp3', null, m, true, {
+ conn.sendFile(m.chat, 'https://bit.ly/3ck9GVu', 'haori.mp3', null, m, true, {
 type: 'audioMessage', 
 ptt: true, contextInfo: {
-        externalAdReply: { showAdAttribution: true, title: `${ucapan()}`, body: 'Sebentar Yah Kak Lagi Di Proses', sourceUrl: 'https://www.tiktok.com/@fory_whitecattiktok?_t=8V5TGON5rgv&_r=1', thumbnail: await (await fetch('https://telegra.ph/file/2b669452f7517d2b5097a.jpg')).buffer(),}} 
+        externalAdReply: { showAdAttribution: true, title: `${ucapan()}`, body: 'Sebentar Yah Kak Lagi Di Proses', sourceUrl: 'https://www.tiktok.com/@fory_whitecattiktok?_t=8V5TGON5rgv&_r=1', thumbnail: await (await fetch(pickRandom(global.waifu))).buffer(),}} 
      })
 await delay(1900)
   await conn.sendFile(m.chat, json, 'error.mp3', null, m, true, {
 type: 'audioMessage', // paksa tanpa convert di ffmpeg
 ptt: false, seconds: 9999999,contextInfo: { 
          externalAdReply: { 
- 	     sourceUrl: 'https://vt.tiktok.com/ZSRRmS8vh/',
+ 	     sourceUrl: 'https://www.instagram.com/the.sad.boy01',
            title: '▶︎ ━━━━━━━●────────── ',  
             body: 'Now Playing...', 
-           thumbnail: await (await fetch('https://telegra.ph/file/1f8e012df6e4aca2fbd11.jpg')).buffer()
+           thumbnail: await (await fetch('https://telegra.ph/file/9214c791ee3156d6ec31c.jpg')).buffer()
 }
      }
     })

@@ -8,7 +8,7 @@ let levelling = require('../lib/levelling')
 let handler = async (m, { conn, usedPrefix: _p, args, command }) => { 
 	let hao = ` 
  *Official Bot By @${'0'.split('@')[0]}* 
- *Powered By @${'16199961931'.split('@')[0]}*` 
+ *Powered By @${'6281365255567'.split('@')[0]}*` 
   let package = JSON.parse(await fs.promises.readFile(path.join(__dirname, '../package.json')).catch(_ => '{}'))
     let { exp, limit, age, money, level, role, registered } = global.db.data.users[m.sender]
     let { min, xp, max } = levelling.xpRange(level, global.multiplier)
@@ -53,7 +53,7 @@ let handler = async (m, { conn, usedPrefix: _p, args, command }) =>�
     const jamm = Math.floor( lebih % (1000 * 60 * 60 * 24) / (1000 * 60 * 60))
     const menitt = Math.floor( lebih % (1000 * 60 * 60) / (1000 * 60))
     const detikk = Math.floor( lebih % (1000 * 60) / 1000)
-    const ultah = new Date('April 5, 2023 23:59:59')
+    const ultah = new Date('Februari 28, 2023 23:59:59')
     const sekarat = new Date().getTime() 
     const Kurang = ultah - sekarat
     const ohari = Math.floor( Kurang / (1000 * 60 * 60 * 24));
@@ -97,8 +97,8 @@ const fkgif = {
                 },
 	 message: { 
 		"extendedTextMessage": {
-                 "text":`CUTE IQ MD 🌱 ┊ 𝗥𝗣𝗚 Whatsapp ʙᴏᴛ`,
-                 "title": `CUTE IQ MD 🌱 ┊ 𝗥𝗣𝗚 Whatsapp ʙᴏᴛ`,
+                 "text":`CUTE IQ MD 🌱 ┊  Whatsapp ʙᴏᴛ`,
+                 "title": `CUTE IQ MD 🌱 ┊  Whatsapp ʙᴏᴛ`,
                  'jpegThumbnail': await (await fetch('https://telegra.ph/file/6f11ac2de8d57a1c831c4.jpg')).buffer()
                         }
 	                  } 
@@ -108,10 +108,10 @@ const fkgif = {
 
 ●────━───༺༻───━────●
                 *《 BOT INFO 》*
-⚘ *Bot Name: CUTE IQ-MD IQ MD*
-⚘ *Creator: Stah Ziv San*
+⚘ *Bot Name: 𝓑𝓸𝓽 𝓦𝓱𝓪𝓽𝓼𝓐𝓹𝓹 𝓐𝓷𝓲𝓶𝓮 𝓛𝓸𝓿𝓮𝓻𝓼 𝓜𝓓𝓥2*
+⚘ *Creator: Zaky*
 ⚘ *Contact Owner Bot*
-*http://wa.me/16199961931*
+*wa.me/6281365255567*
 ⚘ *Tanggal: ${date}*  
 ⚘ *Jam: ${time} WIB*
 ⚘ *Status: 「 ${mode} 」*
@@ -150,7 +150,7 @@ _*${ohari} Hari ${ojam} Jam ${onet} Menit ${detek} Detik*_
 let ftt = `*Note:* Jika menemukan bug, error atau kesulitan dalam penggunaan silahkan laporkan/tanyakan kepada Owner
 
  *Official Bot By @${'0'.split('@')[0]}* 
- *Powered By @${'16199961931'.split('@')[0]}*`
+ *Powered By @${'6281365255567'.split('@')[0]}*`
        let judul = `${ucapanl()}`.trim() 
        const sections = [
                               {
@@ -260,7 +260,7 @@ let ftt = `*Note:* Jika menemukan bug, error atau kesulitan dalam penggunaan sil
                 }, {
                   "title": "「 👥 」› Group ",
                   "description": "Menampilkan fitur dari group",
-                  "rowId": ".? grup"
+                  "rowId": ".? group"
                 }, {
                   "title": "「 🌟 」› Premium ",
                   "description": "Menampilkan fitur dari premium",
@@ -270,9 +270,9 @@ let ftt = `*Note:* Jika menemukan bug, error atau kesulitan dalam penggunaan sil
                   "description": "Menampilkan fitur dari internet",
                   "rowId": ".? internet"
                 }, {
-                  "title": "「 🖊️ 」› Editz Menu ",
-                  "description": "Menampilkan fitur dari logo",
-                  "rowId": ".? nulis"
+                  "title": "「 📷 」› Logo Menu ",
+                  "description": "Noh udah gw tambahin",
+                  "rowId": ".? maker"
                 }, {
                   "title": "「 📩 」› Downloader ",
                   "description": "Menampilkan fitur dari download",
@@ -324,7 +324,7 @@ let ftt = `*Note:* Jika menemukan bug, error atau kesulitan dalam penggunaan sil
                                 "title": "▮Last Update 」"
                                 }, {
                                 "rows": [{                                	
-                  "title": "「 🗨️ 」› Ziv Chat ",
+                  "title": "「 🗨️ 」› Syah Chat ",
                   "description": "Mengobrol Dengan Orang Lain",
                   "rowId": ". start"
                 }],

@@ -47,7 +47,7 @@ let handler = async(m, { conn, command, usedPrefix, DevMode }) => {
         await conn.reply(m.chat, `_Testing ${command }..._`, m)
         let _ramTotal = (ramTotal + ' MB')
         let neww = performance.now()
-        conn.sendButtonLoc(m.chat, logo, `
+        conn.sendButtonImg(m.chat, global.img, `
 *「 Status 」*
 
 OS : *${OS}*

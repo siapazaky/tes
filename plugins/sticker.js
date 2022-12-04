@@ -1,6 +1,12 @@
 const { sticker } = require('../lib/sticker')
 const WSF = require('wa-sticker-formatter')
+const delay = time => new Promise(res => setTimeout(res, time))
 let handler = async (m, { conn, args, usedPrefix, command }) => {
+	conn.sendFile(m.chat, 'https://github.com/zakybang/RULL-API/blob/main/haori.webp?raw=true', 'haori.mp3', null, m, true, {
+type: 'audioMessage', 
+ptt: true, contextInfo: {
+        externalAdReply: { showAdAttribution: true, title: ucapan, body: 'Sebentar Yah Kak Lagi Di Proses', sourceUrl: 'https://www.tiktok.com/@fory_whitecattiktok?_t=8V5TGON5rgv&_r=1', thumbnail: await (await fetch('https://telegra.ph/file/9214c791ee3156d6ec31c.jpg')).buffer(),}} 
+     })
   let stiker = false
   let wsf = false
   try {
@@ -41,18 +47,20 @@ let handler = async (m, { conn, args, usedPrefix, command }) => {
   finally {
     if (wsf) {
       await wsf.build()
+      await delay(1900)
       const sticBuffer = await wsf.get()
-      if (sticBuffer) await conn.sendMessage(m.chat, { sticker: sticBuffer }, {
-        quoted: m,
-        mimetype: 'image/webp',
-        ephemeralExpiration: 86400
-      })
+      if (sticBuffer) await conn.sendFile(m.chat, sticBuffer, 'haori.mp3', null, m, true, {
+type: 'audioMessage', 
+ptt: true, contextInfo: {
+        externalAdReply: { showAdAttribution: true, title: 'Nih Sticker Nya Kak ^_^', body: `${pickRandom(['Furry Indonesia :3', 'Suka Pokemon Nggak Kak :3', 'Kangen Haori Nggak?', 'Udah makan belum kak?', 'Udah Makan Belum?', 'Semangat ya kak!', 'Jangan begadang mulu ya!', 'Jangan spam ya kak!', 'Jangan lupa donasi yak kak! QωQ', 'Jaga kesehatan yaw kak!', 'Jangan lupa makan!', 'Jangan lupa istirahat yak! UωU', 'Haori Sayang Kamu :3', 'Pr nya udh belum kak?', 'Jangan kebanyakan main hp yk! nanti sakit :‹'])}`, sourceUrl: 'https://www.tiktok.com/@fory_whitecattiktok?_t=8V5TGON5rgv&_r=1', thumbnail: await (await fetch(pickRandom(global.waifu))).buffer(),}} 
+     })
     }
-    if (stiker) await conn.sendMessage(m.chat, { sticker: stiker }, {
-      quoted: m,
-      mimetype: 'image/webp',
-      ephemeralExpiration: 86400
-    })
+    await delay(1900)
+    if (stiker) await conn.sendFile(m.chat, stiker, 'haori.mp3', null, m, true, {
+type: 'audioMessage', 
+ptt: true, contextInfo: {
+        externalAdReply: { showAdAttribution: true, title: 'Nih Sticker Nya Kak ^_^', body: `${pickRandom(['Furry Indonesia :3', 'Suka Pokemon Nggak Kak :3', 'Kangen Haori Nggak?', 'Udah makan belum kak?', 'Udah Makan Belum?', 'Semangat ya kak!', 'Jangan begadang mulu ya!', 'Jangan spam ya kak!', 'Jangan lupa donasi yak kak! QωQ', 'Jaga kesehatan yaw kak!', 'Jangan lupa makan!', 'Jangan lupa istirahat yak! UωU', 'Haori Sayang Kamu :3', 'Pr nya udh belum kak?', 'Jangan kebanyakan main hp yk! nanti sakit :‹'])}`, sourceUrl: 'https://www.tiktok.com/@fory_whitecattiktok?_t=8V5TGON5rgv&_r=1', thumbnail: await (await fetch(pickRandom(global.waifu))).buffer(),}} 
+     })
     // else throw `Gagal${m.isGroup ? ', balas gambarnya!' : ''}`
   }
 }
