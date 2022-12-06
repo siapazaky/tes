@@ -1,46 +1,40 @@
-let fetch = require('node-fetch')
-let handler = async (m, { conn, args }) => {
-  if (!args[0]) throw 'Uhm...url nya mana?'
- let chat = global.db.data.chats[m.chat]
-    m.reply(wait)
-await conn.reply(m.chat, `Downloading media from Tiktok`, 0, {
-  contextInfo: { mentionedJid: [m.sender],
-    externalAdReply :{
-    mediaUrl: linkig,
-    mediaType: 2,
-    description: deslink , 
-    title: titlink,
-    body: wm, //`${fileSizeH}`,
-    thumbnail: await(await fetch(img)).buffer(),
-    sourceUrl: linkgc
-     }}
-  })
-    let url = `https://api.lolhuman.xyz/api/tiktokmusic?apikey=SadTeams&url=${args[0]}`
-let txt = `🚀 *Link:* ${await(await axios.get(`https://tinyurl.com/api-create.php?url=${args[0]}`)).data}` 
-    await conn.sendFile(m.chat, `https://api.lolhuman.xyz/api/tiktokmusic?apikey=SadTeams&url=${args[0]}`, 'tiktokmusic.mp3', `
-┏┉━━━━━━━━━━━❏
-┆ *YOUTUBE MP3*
-├┈┈┈┈┈┈┈┈┈┈┈
-┆• *Judul:* 
-│• *Type:* MP3
-┆• *📥 Ukuran File:* 
-└❏
-`.trim(), m, null, {
-   document: { url: `https://api.lolhuman.xyz/api/tiktokmusic?apikey=SadTeams&url=${args[0]}`}, mimetype: 'audio/mpeg', fileName: 'tiktok.mp3', conntextInfo: {
-        externalAdReply: {
-            title: '▶︎ ━━━━━━━•────────────────── ', 
-            body: 'Now Playing...',
-            description: 'Now Playing...',
-            mediaType: 2,
-          thumbnail: await (await fetch('https://telegra.ph/file/9e323ad1f4b2d52579416.jpg')).buffer(),
-         mediaUrl: `https://youtu.be/E1nLzgkOH8A`
-        }
-     }
-  })
-}
-handler.tags = ['downloader']
-handler.command = /^(tt|tiktok)(a(udio)?|mp3|sound)(dl)?(download(er)?)?$/i
+const fs = require ('fs')
+const fetch = require ('node-fetch')
+const axios = require ('axios')
+const { tiktokdl, tiktokdlv2 } = require ('@bochilteam/scraper')
 
-handler.limit = true
+let handler = async (m, { conn, args, usedPrefix, command }) => {
+global.ftroli = { key: { remoteJid: 'status@broadcast', participant: '0@s.whatsapp.net' }, message: { orderMessage: { itemCount: 999999999, status: 1, surface: 1, message: wm, orderTitle: wm, sellerJid: '0@s.whatsapp.net' } } }
+		global.fkontak = { key: { fromMe: false, participant: `0@s.whatsapp.net`, ...(m.chat ? { remoteJid: `status@broadcast` } : {}) }, message: { 'contactMessage': { 'displayName': wm, 'vcard': `BEGIN:VCARD\nVERSION:3.0\nN:XL;${wm},;;;\nFN:${wm},\nitem1.TEL;waid=${m.sender.split('@')[0]}:${m.sender.split('@')[0]}\nitem1.X-ABLabell:Ponsel\nEND:VCARD`, 'jpegThumbnail': fs.readFileSync('./thumbnail.jpg'), thumbnail: fs.readFileSync('./thumbnail.jpg'),sendEphemeral: true}}}
+    try {
+if (!args[0]) throw `Use example ${usedPrefix}${command} https://vm.tiktok.com/ZGJAmhSrp/`
+m.reply('_*Sedang Di Proses...*_')
+    const { author: { nickname }, video, description } = await tiktokdl(args[0])
+    .catch(async _ => await tiktokdlv2(args[0]))
+        .catch(async _ => await tiktokdl(args[0]))
+    const url = video.no_watermark || video.no_watermark2 || video.no_watermark_raw
+    if (!url) throw 'Can\'t download video!'
+    await conn.sendFile(m.chat, `https://api.lolhuman.xyz/api/tiktokmusic?apikey=SadTeams&url=${args[0]}/`, 'error.mp3', null, m, true, {
+type: 'audioMessage', 
+ptt: false, seconds: 9999999,contextInfo: {
+         externalAdReply: { showAdAttribution: true,
+ mediaUrl: 'https://instagram.com/b4c00t.dtz',
+    mediaType: 2, 
+    description: linkgc,
+    title: "⌫     ⌨︎     ☏︎",
+    body: wm,
+    thumbnail: await (await fetch(logo)).buffer(),
+    sourceUrl: linkgc,
+  }
+  } })
+} catch {
+    if (!args[0]) throw 'Uhm...url nya mana?'
+  let txt = `🚀 *Link:* ${await(await axios.get(`https://tinyurl.com/api-create.php?url=${args[0]}`)).data}` 
+  conn.send2ButtonVid(m.chat, `https://api.lolhuman.xyz/api/tiktokwm?apikey=${lolkey}&url=${args[0]}`, txt, wm, `No Wm`, `.tiktoknowm ${args[0]}`, `Audio`, `.tta ${args[0]}`, m)
+    }
+}
+handler.help = ['tiktokaudio', 'ttaudio', 'tta'].map(v => v + ' <url>')
+handler.tags = ['downloader']
+handler.command = /^(tiktokaudio|ttaudio|tta)$/i
 
 module.exports = handler
