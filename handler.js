@@ -277,7 +277,7 @@ module.exports = {
                     if (!('closeGroup' in chat)) chat.closeGroup = false
                     if (!isNumber(chat.add)) chat.add = 0
                     if (!('isBanned' in chat)) chat.isBanned = false
-                    if (!('welcome' in chat)) chat.welcome = true
+                    if (!('welcome' in chat)) chat.welcome = false
                     if (!('detect' in chat)) chat.detect = true
                     if (!('sWelcome' in chat)) chat.sWelcome = ''
                     if (!('sBye' in chat)) chat.sBye = ''
@@ -303,7 +303,7 @@ module.exports = {
                     closeGroup: false,
                     add: 0,
                     isBanned: false,
-                    welcome: true,
+                    welcome: false,
                     detect: true,
                     sWelcome: '',
                     sBye: '',
@@ -618,92 +618,98 @@ module.exports = {
     },
 
     async participantsUpdate({ id, participants, action }) {
-        if (opts['self']) return
-        // if (id in conn.chats) return // First login will spam
-        if (global.isInit) return
-        let chat = global.db.data.chats[id] || {}
-        let text = ''
-        switch (action) {
-            case 'add':
-            case 'remove':
-                if (chat.welcome) {
-                    let groupMetadata = await this.groupMetadata(id) || (conn.chats[id] || {}).metadata
-                    for (let user of participants) {
-                        let pp = 'https://telegra.ph/file/24fa902ead26340f3df2c.png'
-                        try {
-                            pp = await this.profilePictureUrl(user, 'image')
-                        } catch (e) {
-
-                        } finally {
-                            text = (action === 'add' ? (chat.sWelcome || this.welcome || conn.welcome || 'Welcome, @user!').replace('@subject', await this.getName(id)).replace('@desc', groupMetadata.desc ? String.fromCharCode(8206).repeat(4001) + groupMetadata.desc : '') :
-                                (chat.sBye || this.bye || conn.bye || 'Bye, @user!')).replace('@user', await this.getName(user))
-                            let wel = API('males', '/welcome2', {
+       if (opts['self'])
+        return
+    // if (id in conn.chats) return // First login will spam
+    if (this.isInit)
+        return
+    if (global.db.data == null)
+        await loadDatabase()
+    let chat = global.db.data.chats[id] || {}
+    let text = ''
+    switch (action) {
+                case 'add':
+        case 'remove':
+            if (chat.welcome) {
+                let groupMetadata = await this.groupMetadata(id) || (conn.chats[id] || {}).metadata
+                for (let user of participants) {
+                    let pp = 'https://telegra.ph/file/2d06f0936842064f6b3bb.png'
+                    try {
+                        pp = await this.profilePictureUrl(user, 'image')
+                    } catch (e) {
+                    } finally {
+                        text = (action === 'add' ? (chat.sWelcome || this.welcome || conn.welcome || 'Welcome, @user').replace('@subject', await this.getName(id)).replace('@desc', groupMetadata.desc?.toString() || 'unknow') :
+                            (chat.sBye || this.bye || conn.bye || 'Bye @user')).replace(/@user/g, '@' + user.split`@`[0])
+                        let wel = API('males', '/welcome2', {
                                 profile: pp,
                                 username: await this.getName(user),
-                                background: 'https://telegra.ph/file/c538a6f5b0649a7861174.png',
+                                background: 'https://telegra.ph/file/7f827ca45c833542777f0.jpg',
                                 groupname: await this.getName(id),
                                 membercount: groupMetadata.participants.length
                             })
                             let lea = API('males', '/goodbye2', {
                                 profile: pp,
                                 username: await this.getName(user),
-                                background: 'https://telegra.ph/file/c538a6f5b0649a7861174.png',
+                                background: 'https://telegra.ph/file/7f827ca45c833542777f0.jpg',
                                 groupname: await this.getName(id),
                                 membercount: groupMetadata.participants.length
                             })
-                             //await this.sendButtonLoc(id, await conn.resize(pp, 300, 200), text, wm, action === 'add' ? 'Selamat Datang' : 'Sampai Jumpa', action === 'add' ? '.intro' : '-')  
-              let flu = `${pickRandom(['https://www6.flamingtext.com/net-fu/proxy_form.cgi?&imageoutput=true&script=sketch-name&doScale=true&scaleWidth=800&scaleHeight=500&fontsize=100&fillTextType=1&fillTextPattern=Warning!&text=', 'https://www6.flamingtext.com/net-fu/proxy_form.cgi?&imageoutput=true&script=sketch-name&doScale=true&scaleWidth=800&scaleHeight=500&fontsize=100&fillTextType=1&fillTextPattern=Warning!&fillColor1Color=%23f2aa4c&fillColor2Color=%23f2aa4c&fillColor3Color=%23f2aa4c&fillColor4Color=%23f2aa4c&fillColor5Color=%23f2aa4c&fillColor6Color=%23f2aa4c&fillColor7Color=%23f2aa4c&fillColor8Color=%23f2aa4c&fillColor9Color=%23f2aa4c&fillColor10Color=%23f2aa4c&fillOutlineColor=%23f2aa4c&fillOutline2Color=%23f2aa4c&backgroundColor=%23101820&text='])}`
-              let ori = await conn.resize(await (await fetch(flu + `HAI`)).buffer(), 300, 200)
-              let kelu = await conn.resize(await (await fetch(flu + `BYE`)).buffer(), 300, 200)
-              let wibh = moment.tz('Asia/Jakarta').format('HH')
-              let wibm = moment.tz('Asia/Jakarta').format('mm')
-              let wibs = moment.tz('Asia/Jakarta').format('ss')
-              let wktu = `${wibh} H ${wibm} M ${wibs} S`
-              const ftroli = {
-    key : {
-    remoteJid: 'status@broadcast',
-    participant : '0@s.whatsapp.net'
-    },
-    message: {
-    orderMessage: {
-    itemCount : 2022,
-    status: 1,
-    surface : 1,
-    message: `𝗧𝗜𝗠𝗘 : ${wktu}`, 
-    orderTitle: `▮Zivsan ▸`,
-    thumbnail: action === 'add' ? ori : kelu , //Gambarnye
-    sellerJid: '0@s.whatsapp.net' 
-    }
-    }
-    }
- await conn.sendButtonDoc(id, text, wm, action == 'add' ? 'Selamat Datang' : 'Sampai Jumpa', action === 'add' ? '.intro' : 'Ziv San', ftroli,{
-  contextInfo: {mentionedJid: [user],
-    externalAdReply :{ showAdAttribution: true,
-    mediaType: 1, 
-    title: action === 'add' ? 'Selamat Datang Kak!' : 'Yahh.. kok keluar :‹',
-    thumbnail: await(await fetch(pp)).buffer(),
-    renderLargerThumbnail: true, 
-    sourceUrl: 'https://www.tiktok.com/@fory_whitecattiktok?_t=8VOIcAQQyCQ&_r=1'
+                            
+ /* conn.sendButtonDoc(id, wm, text, action == 'add' ? '' : 's', action === 'add' ? '.intro' : 'A X As', fkontak, { contextInfo: { externalAdReply: { showAdAttribution: true,
+    mediaUrl: 'https://instagram/b4c00t4an_s3l3b',
+    mediaType: 2, 
+    description: sgc,
+    title: 'H N',
+    body: wm,
+    thumbnail: await(await fetch(action === 'add' ? wel : lea)).buffer(),
+    sourceUrl: sgc
      }}
-    })
-                         } 
-                     } 
-                 }
-                break
+  })*/
+  let welcom = 'https://telegra.ph/file/35f17bb371d308504bc46.jpg'
 
-            case 'promote':
-                text = (chat.sPromote || this.spromote || conn.spromote || '@user ```is now Admin```')
-            case 'demote':
-                if (!text) text = (chat.sDemote || this.sdemote || conn.sdemote || '@user ```is no longer Admin```')
-                text = text.replace('@user', '@' + participants[0].split('@')[0])
-                if (chat.detect) this.sendMessage(id, text, {
-                    contextInfo: {
-                        mentionedJid: this.parseMention(text)
+  let godbye = 'https://telegra.ph/file/b44e48066aed4fb7ad291.jpg'
+  conn.sendButtonImg(id, await(await fetch(action === 'add' ? wel : lea)).buffer(), 'Group Messege', text, action == 'add' ? '' : 's', action === 'add' ? '.intro' : 'Zaky', fkontak, { contextInfo: { externalAdReply: { showAdAttribution: true,
+    mediaUrl: 'https://instagram.com',
+    mediaType: 2, 
+    description: linkgc,
+    title: "J S C",
+    body: wm,
+    thumbnail: await(await fetch(action === 'add' ? welcom : godbye)).buffer(),
+    sourceUrl: linkgc
+     }}
+  })
+  
                     }
-                })
-                break
-        }
-    },
+                }
+            }
+            break
+        case 'promote':
+            text = (chat.sPromote || this.spromote || conn.spromote || '@user ```is now Admin```')
+        case 'demote':
+            if (!text)
+                text = (chat.sDemote || this.sdemote || conn.sdemote || '@user ```is no longer Admin```')
+            text = text.replace('@user', '@' + participants[0].split('@')[0])
+            if (chat.detect)
+                this.sendMessage(id, { text, mentions: this.parseMention(text) })
+/*let flaaa2 = [
+'https://flamingtext.com/net-fu/proxy_form.cgi?&imageoutput=true&script=water-logo&script=water-logo&fontsize=90&doScale=true&scaleWidth=800&scaleHeight=500&fontsize=100&fillTextColor=%23000&shadowGlowColor=%23000&backgroundColor=%23000&text=',
+'https://flamingtext.com/net-fu/proxy_form.cgi?&imageoutput=true&script=crafts-logo&fontsize=90&doScale=true&scaleWidth=800&scaleHeight=500&text=',
+'https://flamingtext.com/net-fu/proxy_form.cgi?&imageoutput=true&script=amped-logo&doScale=true&scaleWidth=800&scaleHeight=500&text=',
+'https://www6.flamingtext.com/net-fu/proxy_form.cgi?&imageoutput=true&script=sketch-name&doScale=true&scaleWidth=800&scaleHeight=500&fontsize=100&fillTextType=1&fillTextPattern=Warning!&text=',
+'https://www6.flamingtext.com/net-fu/proxy_form.cgi?&imageoutput=true&script=sketch-name&doScale=true&scaleWidth=800&scaleHeight=500&fontsize=100&fillTextType=1&fillTextPattern=Warning!&fillColor1Color=%23f2aa4c&fillColor2Color=%23f2aa4c&fillColor3Color=%23f2aa4c&fillColor4Color=%23f2aa4c&fillColor5Color=%23f2aa4c&fillColor6Color=%23f2aa4c&fillColor7Color=%23f2aa4c&fillColor8Color=%23f2aa4c&fillColor9Color=%23f2aa4c&fillColor10Color=%23f2aa4c&fillOutlineColor=%23f2aa4c&fillOutline2Color=%23f2aa4c&backgroundColor=%23101820&text=']
+conn.sendButtonImg(id, `${pickRandom(flaaa2)}` + `Congratulation ` + '@user', 'S N J', text, mentions: this.parseMention(text), { contextInfo: { externalAdReply: { showAdAttribution: true,
+    mediaUrl: 'https://facebook.com/sadtime098',
+    mediaType: 2, 
+    description: sgc,
+    title: "J L M!!",
+    body: wm,
+    thumbnail: fs.readFileSync('./thumbnail.jpg'),
+    sourceUrl: sgc
+     }}
+  })*/
+            break
+    }
+},
     async groupsUpdate(groupsUpdate, fromMe, m) {
         if (opts['self'] && m.fromMe) return
             console.log(m)
