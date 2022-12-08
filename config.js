@@ -22,7 +22,7 @@ global.APIs = { // API Prefix
   lol: 'https://api.lolhuman.xyz',
   zens: 'https://zenzapis.xyz',
   violetics : 'https://violetics.pw',
-  males: 'https://malest.herokuapp.com'
+  males: 'https://malesin.xyz'
 }
 global.APIKeys = { // APIKey Here
   // 'https://website': 'apikey'
