@@ -10,15 +10,14 @@ handler.all = async function (m) {
     if (db.data.settings.groupOnly) return
     let user = global.db.data.users[m.sender]
     let name = conn.user.name
-    let hao = `*Official Bot By @${'0'.split('@')[0]}* 
+    let hao = `Saya Adalah AnimeloversV2 BOT What'sapp Yang Bisa Anda Gunakan Untuk Membuat Sticker, Mendownload Sesuatu, Bermain Game, Dll.
+
+Tolong Jangan Spam, Telepon, Vc, Kirim Virtex.\n\n*Official Bot By @${'0'.split('@')[0]}* 
 *Powered By @${global.owner[1].split('@')[0]}*`
     if (new Date - user.pc < 86400000) return // setiap 24 jam sekali
-        await conn.send3ButtonLoc(m.chat, 'https://telegra.ph/file/606ecba4019ea293aa26f.jpg', ` ${ucapan()}, @${m.sender.split`@`[0]}
- ${user.banned ? 'kamu dibanned' : `
-Saya Adalah Cute, Bot What'sapp Yang Bisa Anda Gunakan Untuk Membuat Sticker, Mendownload Sesuatu, Bermain Game, Dll.
-
-Tolong Jangan Spam, Telepon, Vc, Kirim Virtex.`} 
- `.trim(), hao, user.banned ? 'Pemilik Bot' : 'Menu', user.banned ? '!owner' : '.menu', 'Panduan penggunaan', '.tutorbot', 'Verify', '.daftar ${conn.getName(m.sender)}.16', m) 
+        await conn.send3ButtonLoc(m.chat, logo, ` ${ucapan()}, @${m.sender.split`@`[0]}
+ ${user.banned ? 'kamu dibanned' : `*Made Zaky*`} 
+ `.trim(), hao, user.banned ? 'Pemilik Bot' : 'Menu', user.banned ? '!owner' : '.menu', 'Panduan penggunaan', '.tutorbot', 'Verify', '.daftar ${username}.13', m) 
      user.pc = new Date * 1 
  } 
  
