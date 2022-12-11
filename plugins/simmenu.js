@@ -89,17 +89,20 @@ let handler = async (m, { conn, usedPrefix: _p, args, command }) =>�
   let who = m.mentionedJid && m.mentionedJid[0] ? m.mentionedJid[0] : m.fromMe ? conn.user.jid : m.sender
   let sender = m.sender
   let pp = await conn.profilePictureUrl(who, 'image').catch((_) => "https://telegra.ph/file/24fa902ead26340f3df2c.png")
-const fkgif = {
-	 key: { 
-          fromMe: false,
-	      participant: `0@s.whatsapp.net`, ...(m.chat ? 
-	 { remoteJid: "6282331033919-1625305606@g.us" } : {}) 
-                },
-	 message: { 
-		"extendedTextMessage": {
-                 "text":`CUTE IQ MD 🌱 ┊  Whatsapp ʙᴏᴛ`,
-                 "title": `CUTE IQ MD 🌱 ┊  Whatsapp ʙᴏᴛ`,
-                 'jpegThumbnail': await (await fetch('https://telegra.ph/file/6f11ac2de8d57a1c831c4.jpg')).buffer()
+const ftrol = {
+    key : {
+    remoteJid: 'status@broadcast',
+    participant : '0@s.whatsapp.net'
+    },
+    message: {
+    orderMessage: {
+    itemCount : 2022,
+    status: 1,
+    surface : 1,
+    message: `📮Zaky Record ${await conn.getName(conn.user.jid)}`, 
+    orderTitle: ``,
+    thumbnail: await (await fetch('https://telegra.ph/file/adeb5e67ae30469e548d5.jpg')).buffer(), //Gambarnye
+    sellerJid: '0@s.whatsapp.net' 
                         }
 	                  } 
                      }
@@ -107,285 +110,285 @@ const fkgif = {
                      let tksk = `${pe}${ucapan()}, @${m.sender.split`@`[0]} ${pickRandom(['😅', '🥰', '😜'])}${pe}
 
 ●────━───༺༻───━────●
-                *《 BOT INFO 》*
-⚘ *Bot Name: 𝓑𝓸𝓽 𝓦𝓱𝓪𝓽𝓼𝓐𝓹𝓹 𝓐𝓷𝓲𝓶𝓮 𝓛𝓸𝓿𝓮𝓻𝓼 𝓜𝓓𝓥2*
-⚘ *Creator: Zaky*
-⚘ *Contact Owner Bot*
+                *《 𝘉𝘖𝘛 𝘐𝘕𝘍𝘖 》*
+⚘ *ʙᴏᴛ ɴᴀᴍᴇ: 𝓑𝓸𝓽 𝓦𝓱𝓪𝓽𝓼𝓐𝓹𝓹 𝓐𝓷𝓲𝓶𝓮 𝓛𝓸𝓿𝓮𝓻𝓼 𝓜𝓓𝓥2*
+⚘ *ᴄʀᴇᴀᴛᴏʀ: 𝓩𝓪𝓴𝔂*
+⚘ *ᴄᴏɴᴛᴀᴄᴛ ᴏᴡɴᴇʀ ʙᴏᴛ*
 *wa.me/6281365255567*
-⚘ *Tanggal: ${date}*  
-⚘ *Jam: ${time} WIB*
-⚘ *Status: 「 ${mode} 」*
-⚘ *Prefix: 「 MULTI PREFIX 」*
+⚘ *ᴛᴀɴɢɢᴀʟ: ${date}*  
+⚘ *ᴊᴀᴍ: ${time} 𝓦𝓘𝓑*
+⚘ *sᴛᴀᴛᴜs: 「 ${mode} 」*
+⚘ *ᴘʀᴇғɪx: 「 𝓜𝓤𝓛𝓣𝓘 𝓟𝓡𝓔𝓕𝓛𝓘𝓧 」*
 
 ●────━───༺༻───━────●
-           *《 INFO WAKTU 》*
-✧ 𝙏𝘼𝙃𝙐𝙉 𝘽𝘼𝙍𝙐
+           *《 𝘐𝘕𝘍𝘖 𝘞𝘈𝘒𝘛𝘜 》*
+✧ 𝙏𝘼𝙃𝙐𝙉 𝘽𝘼𝙍𝙐
 _*${jhari} Hari ${jjam} Jam ${mmmenit} Menit ${ddetik} Detik*_
 ✧ 𝙍𝘼𝙈𝘼𝘿𝘼𝙉
 _*${harii} Hari ${jamm} Jam ${menitt} Menit ${detikk} Detik*_ 
 ✧ 𝙉𝘼𝙏𝘼𝙇
 _*${nhari} Hari ${njam} Jam ${nmenit} Menit ${mdetek} Detik*_ 
-✧ 𝙐𝙇𝘼𝙉𝙂 𝙏𝘼𝙃𝙐𝙉 𝙊𝙒𝙉𝙀𝙍 
+✧ 𝙐𝙇𝘼𝙉𝙂 𝙏𝘼𝙃𝙐𝙉 𝙕𝘼𝙆𝙔
 _*${ohari} Hari ${ojam} Jam ${onet} Menit ${detek} Detik*_
 ●────━───༺༻───━────●
 
 ❉───────────────────❉
-               *《 USER INFO 》*
-◦ *Nama: ${name}*
-◦ *Status :* ${premium ? 'Premium' : 'Free'} User
-◦ *Limit: ${limit}*
-◦ *Your Api:* wa.me/${m.sender.split('@')[0]}
+               *《 𝘜𝘚𝘌𝘙 𝘐𝘕𝘍𝘖 》*
+◦ *ɴᴀᴍᴀ: ${name}*
+◦ *sᴛᴀᴛᴜs :* ${premium ? 'Premium' : 'Free'} User
+◦ *ʟɪᴍɪᴛ: ${limit}*
+◦ *ʏᴏᴜʀ ᴀᴘɪ:* wa.me/${m.sender.split('@')[0]}
 
-             *《 YOUR PROGRESS 》*
-◦ *Level: ${level}*
-◦ *XP: ${exp}*
-◦ *Rank: ${role}*
+             *《 𝘠𝘖𝘜𝘙 𝘗𝘙𝘖𝘎𝘙𝘌𝘚𝘚 》*
+◦ *ʟᴇᴠᴇʟ: ${level}*
+◦ *xᴘ: ${exp}*
+◦ *ʀᴀɴᴋ: ${role}*
 
 ●────━───༺༻───━────●
-             *《 BOT STATUS 》*
-❏ *Runtime ${uptime}*
-𒍮 *User Register: ${totalreg}*
+             *《 𝘉𝘖𝘛 𝘚𝘛𝘈𝘛𝘜𝘚 》*
+❏ *ʀᴜɴᴛɪᴍᴇ ${uptime}*
+𒍮 *ᴜsᴇʀ ʀᴇɢɪsᴛᴇʀ: ${totalreg}*
 ●────━───༺༻───━────●`
 
-let ftt = `*Note:* Jika menemukan bug, error atau kesulitan dalam penggunaan silahkan laporkan/tanyakan kepada Owner
+let ftt = `*𝓝𝓞𝓣𝓔:* ᴊɪᴋᴀ ᴍᴇɴᴇᴍᴜᴋᴀɴ ʙᴜɢ, ᴇʀʀᴏʀ ᴀᴛᴀᴜ ᴋᴇsᴜʟɪᴛᴀɴ ᴅᴀʟᴀᴍ ᴘᴇɴɢɢᴜɴᴀᴀɴ sɪʟᴀʜᴋᴀɴ ʟᴀᴘᴏʀᴋᴀɴ/ᴛᴀɴʏᴀᴋᴀɴ ᴋᴇᴘᴀᴅᴀ ᴏᴡɴᴇʀ
 
- *Official Bot By @${'0'.split('@')[0]}* 
- *Powered By @${'6281365255567'.split('@')[0]}*`
+ *ᴏғғɪᴄɪᴀʟ ʙᴏᴛ ʙʏ @${'0'.split('@')[0]}* 
+ *ᴘᴏᴡᴇʀᴇᴅ ʙʏ @${'6281365255567'.split('@')[0]}*`
        let judul = `${ucapanl()}`.trim() 
        const sections = [
                               {
                                 "rows": [{
-                                         "title": "📊 › Status ",
+                                         "title": "📊 › sᴛᴀᴛᴜs ",
                                          "description": "Status カ CUTE IQ-MD",
                                          "rowId": ".botstat"
                                     }, {
-                                         "title": "⚡› Speed ",
+                                         "title": "⚡› sᴘᴇᴇᴅ ",
                                          "description": "Menampilkan Kecepatan Respon カ CUTE IQ-MD",
                                          "rowId": ".ping"
                                     }, {
-                                         "title": "🗒️› Info ",
+                                         "title": "🗒️› ɪɴғᴏ ",
                                          "description": "Menampilkan Info カ CUTE IQ-MD",
                                          "rowId": ".info"
                                     }, {
-                                         "title": "🎐 › Developer Bot ",
+                                         "title": "🎐 › ᴅᴇᴠᴇʟᴏᴘᴇʀ ʙᴏᴛ ",
                                          "description": "Kontak Creator Ku",
                                          "rowId": ".owner"
                                     }, {
-                                         "title": "❗ › Syarat Dan Peraturan ",
+                                         "title": "❗ › sʏᴀʀᴀᴛ ᴅᴀɴ ᴘᴇʀᴀᴛᴜʀᴀɴ ",
                                          "description": "Budayakan Membaca Sebelum Menggunakan Bot",
                                          "rowId": ".rules"
                                     }, {
-                                         "title": "🪙 ›  Leaderboard",
+                                         "title": "🪙 ›  ʟᴇᴀᴅᴇʀʙᴏᴀʀᴅ",
                                          "description": "Cek Posisi Mu",
                                          "rowId": ".lb"  
                                     }, {
-                                         "title": "💌 › Group Official Bot",
+                                         "title": "💌 › ɢʀᴏᴜᴘ ᴏғғɪᴄɪᴀʟ ʙᴏᴛ",
                                          "description": "Gabung untuk mendapatkan informasi mengenai bot atau sekedar meramaikan",
                                          "rowId": ".gcbot"                               
       }],             
                     "title": "▮Status 」"
                 }, {
                   "rows": [{
-                  "title": "「 💬 」› Semua Perintah",
+                  "title": "「 💬 」› sᴇᴍᴜᴀ ᴘᴇʀɪɴᴛᴀʜ",
                   "description": "Menampilkan semua fitur dari bot",
                   "rowId": ".? all"
                 }, {              
-                  "title": "「 🎮 」› Game ",
+                  "title": "「 🎮 」› ɢᴀᴍᴇ ",
                   "description": "Menampilkan fitur dari game",
                   "rowId": ".? game"
                 }, {
-                  "title": "「 🌱 」› Rpg ",
+                  "title": "「 🌱 」› ʀᴘɢ ",
                   "description": "Menampilkan fitur dari rpg ! ",
                   "rowId": ".? rpg"
                 }, {
-                  "title": "「 📈 」› Exp & Limit ",
+                  "title": "「 📈 」› ᴇxᴘ & ʟɪᴍɪᴛ ",
                   "description": "Menampilkan fitur dari xp",
                   "rowId": ".? xp"
                 }, {
-                  "title": "「 🧩 」› Fun ",
+                  "title": "「 🧩 」› ғᴜɴ ",
                   "description": "Menampilkan fitur dari fun",
                   "rowId": ".? fun"
                 }, {
-                  "title": "「 🎁 」› Gift ",
+                  "title": "「 🎁 」› ɢɪғᴛ ",
                   "description": "Menampilkan fitur dari gift!",
                   "rowId": ".? gift"
                 }, {
-                  "title": "「 🔞 」› Nsfw ",
+                  "title": "「 🔞 」› ɴsғᴡ ",
                   "description": "Menampilkan fitur dari nsfw",
                   "rowId": ".? nsfw"
                 }, {
-                  "title": "「 ⛩️ 」› Anime ",
+                  "title": "「 ⛩️ 」› ᴀɴɪᴍᴇ ",
                   "description": "Menampilkan fitur dari anime",
                   "rowId": ".? anime"
                 }, {
-                  "title": "「 📰 」› News ",
+                  "title": "「 📰 」› ɴᴇᴡs ",
                   "description": "Menampilkan fitur dari berita",
                   "rowId": ".? News"
                 },  {
-                  "title": "「 ☪️ 」› Islamic ",
+                  "title": "「 ☪️ 」› ɪsʟᴀᴍɪᴄ ",
                   "description": "Menampilkan fitur dari islam",
                   "rowId": ".? quran"
                 }, {
-                  "title": "「 📚 」› Edukasi ",
+                  "title": "「 📚 」› ᴇᴅᴜᴋᴀsɪ ",
                   "description": "Menampilkan fitur dari edukasi",
                   "rowId": ".? edukasi"
                 }, {
-                  "title": "「 🖼️ 」› Random Pict ",
+                  "title": "「 🖼️ 」› ʀᴀɴᴅᴏᴍ ᴘɪᴄᴛ ",
                   "description": "Menampilkan fitur dari foto",
                   "rowId": ".? image"
                 },  {
-                  "title": "「 🎫 」› Sticker ",
+                  "title": "「 🎫 」› sᴛɪᴄᴋᴇʀ ",
                   "description": "Menampilkan fitur dari sticker",
                   "rowId": ".? stiker"
                 }, {
-                  "title": "「 🐚 」› Kerang Ajaib",
+                  "title": "「 🐚 」› ᴋᴇʀᴀɴɢ ᴀᴊᴀɪʙ",
                   "description": "Menampilkan fitur dari kerang ajaib",
                   "rowId": ".? kerangajaib"
                 }, {
-                  "title": "「 🎵 」› Sound Music ",
+                  "title": "「 🎵 」› sᴏᴜɴᴅ ᴍᴜsɪᴄ ",
                   "description": "Menampilkan fitur dari sound music",
                   "rowId": ".? sound"
                 }, { 
-                  "title": "「 🎧 」› Random Vn",
+                  "title": "「 🎧 」› ʀᴀɴᴅᴏᴍ ᴠɴ",
                   "description": "Menampilkan fitur dari rendom vn",
                   "rowId": ".? vn"                                                      
                 }, {
-                  "title": "「 📑 」› Quotes ",
+                  "title": "「 📑 」› ǫᴜᴏᴛᴇs ",
                   "description": "Menampilkan fitur dari random teks",
                   "rowId": ".? quotes"
                 }, {
-                  "title": "「 🏛️  」› Group Settings ",
-                  "description": "Menampilkan fitur dari pengaturan grup",
-                  "rowId": ".? admin"
+                  "title": "「 📝 」› ᴍᴇɴᴜ ᴛᴀᴍᴘɪʟᴀɴ ᴠ𝟸 ",
+                  "description": "Menampilkan Menu Tampilan V2",
+                  "rowId": ".menu3"
                 }, {
-                  "title": "「 👥 」› Group ",
+                  "title": "「 👥 」› ɢʀᴏᴜᴘ ",
                   "description": "Menampilkan fitur dari group",
                   "rowId": ".? group"
                 }, {
-                  "title": "「 🌟 」› Premium ",
+                  "title": "「 🌟 」› ᴘʀᴇᴍɪᴜᴍ ",
                   "description": "Menampilkan fitur dari premium",
                   "rowId": ".? premium"
                 }, {
-                  "title": "「 💻 」› Internet ",
+                  "title": "「 💻 」› ɪɴᴛᴇʀɴᴇᴛ ",
                   "description": "Menampilkan fitur dari internet",
                   "rowId": ".? internet"
                 }, {
-                  "title": "「 📷 」› Logo Menu ",
+                  "title": "「 📷 」› ʟᴏɢᴏ ᴍᴇɴᴜ ",
                   "description": "Noh udah gw tambahin",
                   "rowId": ".? maker"
                 }, {
-                  "title": "「 📩 」› Downloader ",
+                  "title": "「 📩 」› ᴅᴏᴡɴʟᴏᴀᴅᴇʀ ",
                   "description": "Menampilkan fitur dari download",
                   "rowId": ".? downloader"
                 }, {
-                  "title": "「 🎭 」›  Anonymous Chat",
+                  "title": "「 🎭 」›  ᴀɴᴏɴʏᴍᴏᴜs ᴄʜᴀᴛ",
                   "description": "Menampilkan fitur dari anonymous chat",
                   "rowId": ".? anonymous"  
                 }, {              	
-                  "title": "「 🧰 」› Tools ",
+                  "title": "「 🧰 」› ᴛᴏᴏʟs ",
                   "description": "Menampilkan fitur dari tools",
                   "rowId": ".? tools"
                 }, {
-                  "title": "「 📂 」› Database ",
+                  "title": "「 📂 」› ᴅᴀᴛᴀʙᴀsᴇ ",
                   "description": "Menampilkan fitur dari database",
                   "rowId": ".? database"
                 }, {
-                  "title": "「 🗳️ 」› Vote & Absen ",
+                  "title": "「 🗳️ 」› ᴠᴏᴛᴇ & ᴀʙsᴇɴ ",
                   "description": "Menampilkan fitur dari vote",
                   "rowId": ".? vote"
                 }, {
-                  "title": "「 🎙️ 」› Voice Changer ",
+                  "title": "「 🎙️ 」› ᴠᴏɪᴄᴇ ᴄʜᴀɴɢᴇʀ ",
                   "description": "Menampilkan fitur dari voice changer ",
                   "rowId": ".? audio"
                 }, {
-                  "title": "「 🐾 」› Furry Kawai",
-                  "description": "Menampilkan fitur dari random furry ",
-                  "rowId": ".? furry"
+                  "title": "「 📻 」› sᴏᴜɴᴅ ᴍᴇɴᴜ",
+                  "description": "Menampilkan fitur dari random sound ",
+                  "rowId": ".soundmenu"
                 }, {
-                  "title": "「 ℹ️ 」› Info ",
+                  "title": "「 ℹ️ 」› ɪɴғᴏ ",
                   "description": "Menampilkan fitur dari info",
                   "rowId": ".? info"
                 }, {
-                  "title": "「 ❓ 」› No Category ",
+                  "title": "「 ❓ 」› ɴᴏ ᴄᴀᴛᴇɢᴏʀʏ ",
                   "description": "Menampilkan fitur dari tanpa kategori",
                   "rowId": ".? tanpakategori"
                 }, {
-                  "title": "「 👩🏻‍💻 」› Owner ",
+                  "title": "「 👩🏻‍💻 」› ᴏᴡɴᴇʀ ",
                   "description": "Menampilkan fitur dari owner",
                   "rowId": ".? owner"
                 }],
                                 "title": "▮Category 」"
                                 }, {
                                 "rows": [{                                	
-                                "title": "📝 ∫  Catatan Perubahan ",
+                                "title": "📝 ∫  ᴄᴀᴛᴀᴛᴀɴ ᴘᴇʀᴜʙᴀʜᴀɴ ",
                                 "description": "Last Update Terakhir Di CUTE IQ-MD",
                                 "rowId": ".notes"                  
                 }],                
                                 "title": "▮Last Update 」"
                                 }, {
                                 "rows": [{                                	
-                  "title": "「 🗨️ 」› Syah Chat ",
+                  "title": "「 🗨️ 」› ᴍᴀɴғᴇs ",
                   "description": "Mengobrol Dengan Orang Lain",
                   "rowId": ". start"
                 }],
                                 "title": "▮Anonymous Chat 」"
                                 }, {
                                 "rows": [{                                	
-                                         "title": "📣 › Group Setting ",
+                                         "title": "📣 › ɢʀᴏᴜᴘ sᴇᴛᴛɪɴɢ ",
                                          "description": "Setting Grup",
                                          "rowId": ".setelangrub" 
                                      }, {
-                                         "title": "⚙️ › Bot Setting ",
+                                         "title": "⚙️ › ʙᴏᴛ sᴇᴛᴛɪɴɢ ",
                                          "description": "Setting Bot",
                                          "rowId": ".botsett" 
                  }],
                                 "title": "▮Pengaturan 」" 
                                 }, {
                                 "rows": [{
-                                "title": "🗳️ ∫  Donasi ",
+                                "title": "🗳️ ∫  ᴅᴏɴᴀsɪ ",
                                 "description": "Donasi kak, jangan enak pakenya doang",
                                 "rowId": ".donasi"
                                 }, {
-                                "title": "🔖 ∫  Sewa bot - Premium ",
+                                "title": "🔖 ∫  sᴇᴡᴀ ʙᴏᴛ - ᴘʀᴇᴍɪᴜᴍ ",
                                 "description": "Untuk kamu yang ingin melihat daftar harga sewa dan premium",
                                 "rowId": ".sewa"
                                 }, {
-                                "title": "🌟 ∫  Premium ",
+                                "title": "🌟 ∫  ᴘʀᴇᴍɪᴜᴍ ",
                                 "description": "Menampilkan List Harga premium",
                                 "rowId": ".premium"
                                 }, {
-                                "title": "🔬  ∫  Source Code ",
+                                "title": "🔬  ∫  sᴏᴜʀᴄᴇ ᴄᴏᴅᴇ ",
                                 "description": "Menampilkan Source Code Bot",
                                 "rowId": ".sc"
                                 }, {
-                                "title": "💭 ∫  Pertanyaan Tentang Bot Ini ",
+                                "title": "💭 ∫  ᴘᴇʀᴛᴀɴʏᴀᴀɴ ᴛᴇɴᴛᴀɴɢ ʙᴏᴛ ɪɴɪ ",
                                 "description": "Especially WhatsApp users whose numbers start with +212",
                                 "rowId": ".QnA"
                                 }, {
-                                "title": "☎️ ∫  Kata penutup ",
+                                "title": "☎️ ∫  ᴋᴀᴛᴀ ᴘᴇɴᴜᴛᴜᴘ ",
                                 "description": "Terimakasih untuk user yang telah menggunakan bot, jika ada kesalahan atau permintaan bisa chat ke nomor owner\nNote: chat P/main² tidak akan di respon(user bisa terkena banned/block)",
                                 "rowId": ".creator"
                                 }], 
                     "title": "▮Info Lainnya 」"
                 }, {
                   "rows": [{
-                  "title": "🥇「 Contributor 」",
+                  "title": "🥇「 ᴄᴏɴᴛʀɪʙᴜᴛᴏʀ 」",
                   "description": "Terima kasih banyak untuk user yang telah berpartisipasi",                  
                   "rowId": ".? thnks"
                        }],
-                                "title": "▮Thanks To  」"
+                                "title": "▮ᴛʜᴀɴᴋ's ᴛᴏ  」"
                             }
            ] 
     const listMessage = {
-      text: `Hai Kak ${name} Pilih Menu Dibawah Ini Yah Kak`.trim(),
-      footer: 'Tetap Follow Terus Bot Yah Kak >//<',
+      text: `ʜᴀɪ ᴋᴀᴋ ${name}`.trim(),
+      footer: 'sᴀʏᴀ ᴀɴɪᴍᴇ ʟᴏᴠᴇʀs ᴍᴅ ᴠ𝟺 ʏᴀɴɢ ᴅɪ ʙᴜᴀᴛ ᴏʟᴇʜ ᴢᴀᴋʏ ʙᴇʀɢᴜɴᴀ ᴜɴᴛᴜᴋ ᴍᴇᴍᴘᴇʀᴍᴜᴅᴀʜ ᴋᴀᴍᴜ ᴍᴇᴍʙᴜᴀᴛ sᴛɪᴄᴋᴇʀ ᴅʟʟ, ᴊᴀᴅɪ ᴛᴏʟᴏɴɢ ᴊᴀɴɢᴀɴ ᴅɪ sᴘᴀᴍ ʏᴀ ᴋᴀᴋ ʜᴀʀɢᴀɪ ʟᴀʜ ᴘᴇᴍʙᴜᴀᴛ ɴʏᴀ\nᴘɪʟɪʜ ᴍᴇɴᴜ ᴅɪʙᴀᴡᴀʜ ɪɴɪ ʏᴀʜ ᴋᴀᴋ >//<',
       title: judul,
       buttonText: "Pilih Disini",
       sections
     }
      await conn.send3ButtonLoc(m.chat, await conn.resize(await genProfile(conn, m), 300, 180), tksk, ftt, 'RENT', '.sewa', 'OWNER', '.owner', 'CREDITS', '.tqto', m)
      //await conn.send3ButtonLoc(m.chat, await conn.resize(pp, 300, 300), tksk, ftt, 'RENT', '.sewa', 'OWNER', '.owner', 'CREDITS', '.tqto', m)
-    return conn.sendMessage(m.chat, listMessage, { quoted: fkgif, mentions: await conn.parseMention(judul), contextInfo: { forwardingScore: 99999, isForwarded: true }})
+    return conn.sendMessage(m.chat, listMessage, { quoted:ftrol, mentions: await conn.parseMention(judul), contextInfo: { forwardingScore: 99999, isForwarded: true }})
     
     }
 handler.help = ['simplemenu']
@@ -403,7 +406,7 @@ handler.command = /^(simplemenu)$/i
  handler.fail = null 
  handler.exp = 3 
   
- module.exports = handler 
+ module.exports = handler
   
  const more = String.fromCharCode(8206) 
  const readMore = more.repeat(4001) 
