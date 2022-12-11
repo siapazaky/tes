@@ -69,7 +69,7 @@ let handler = async (m, { conn, usedPrefix: _p, args, command }) => {
     })
      {
       let judul = `${global.ucapan}, ${name}\n\nPilih dibawah kak ! o(〃＾▽＾〃)o`
-      let gw = `㋛created By ${global.author}𓂺`
+      let gw = `㋛created By ${global.author}`
       const sections = [
    {
 	title: `⫹⫺ SOUND MENU –––––––––·•`,
