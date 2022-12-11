@@ -12,9 +12,9 @@ let handler = async(m, { conn }) => {
     itemCount : 999999,
     status: 404,
     surface : 404,
-    message: `Nih My Mastah :3`, 
+    message: `ɪɴɪ ʏᴀ ᴋᴀᴋ ɴᴏᴍᴏʀ ᴢᴀᴋʏ :3`, 
     orderTitle: ``,
-    thumbnail: await (await fetch('https://telegra.ph/file/7501d485189f34dc429a7.jpg')).buffer(), //Gambarnye
+    thumbnail: await (await fetch('https://telegra.ph/file/b4e6bef10fc6eb02694bd.jpg')).buffer(), //Gambarnye
     sellerJid: '0@s.whatsapp.net' 
     }
     }
@@ -28,12 +28,12 @@ let handler = async(m, { conn }) => {
    })
 	]
 	await delay(100)
-  return conn.sendButtonDoc(m.chat, `Hay kak @${await m.sender.split('@')[0]}, itu nomor ownerku jangan dispam yah ^_^`, 'Itu Owner Ku Yah Kak Jangan Sungkem Untuk Chat ;3','Credits', '.tqto', m, { quoted: conn.p[id][0],
+  return conn.sendButtonDoc(m.chat, `Hay kak @${await m.sender.split('@')[0]}, \nᴘᴇsᴀɴ`, 'ɪᴛᴜ ɴᴏᴍᴏʀ ᴢᴀᴋʏ ᴋᴀᴋ ᴋᴀʟᴀᴜ ᴀᴅᴀ ᴘᴇʀʟᴜ ᴄʜᴀᴛ ʏᴀʜ, ʙᴛᴡ ᴢᴀᴋʏ ʙᴜᴛᴜʜ ᴋᴏɴᴛᴀᴋ, ᴛᴇʀɪᴍᴀᴋᴀsɪʜ ʏᴀɴɢ ᴛɪᴅᴀᴋ sᴘᴀᴍ ʙᴏᴛ;3','Credits', '.tqto', m, { quoted: conn.p[id][0],
     contextInfo: { //forwardingScore: 99999, isForwarded: true,
         externalAdReply: { //showAdAttribution: true,
         	sourceUrl: 'https://vt.tiktok.com/ZSRRmS8vh/',
-            title: 'Jangan Bully Syah Dia Kang Kopas <3',
-            body: 'Jangan Di Spam Ya Tod',
+            title: 'ᴊᴀɴɢᴀɴ ʙᴜʟʟʏ ᴢᴀᴋʏ ᴅɪᴀ ᴋᴀɴɢ ᴋᴏᴘᴀs <3',
+            body: 'ʙᴏᴛ ɴʏᴀ ᴊᴀɴɢᴀɴ ᴅɪ sᴘᴀᴍ ʏᴀ ᴋᴀᴋ>_<',
           thumbnail: await (await fetch(pp)).buffer()
         }
      }
@@ -42,8 +42,8 @@ let handler = async(m, { conn }) => {
   return delete conn.p[id]
 }
 
-handler.help = ['owner']
+handler.help = ['kontakzaky', 'zaky']
 handler.tags = ['info']
-handler.command = /^(owner|creator)$/i
+handler.command = /^(kontakzaky|zaky)$/i
 
 module.exports = handler
