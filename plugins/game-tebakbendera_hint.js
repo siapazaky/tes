@@ -3,11 +3,8 @@ let handler = async (m, { conn }) => {
     let id = m.chat
     if (!(id in conn.tebakbendera)) throw false
     let json = conn.tebakbendera[id][1]
-    let ans = json.name.trim()
-    let clue = ans.replace(/[AIUEOaiueo]/g, '_')
-    conn.reply(m.chat, '```' + clue + '```\nBalas soalnya, bukan pesan ini', conn.tebakbendera[id][0])
+    m.reply('```' + json.name.replace(/[bcdfghjklmnpqrstvwxyz]/g, '_') + '```\nBalas soalnya Bukan Pesan ini_-')
 }
-handler.command = /^tekbe$/i
+handler.command = /^tebe$/i
 handler.limit = true
-
 module.exports = handler

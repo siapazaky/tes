@@ -1,7 +1,7 @@
+let fs = require('fs')
 let fetch = require('node-fetch')
-
 let timeout = 120000
-let poin = 1000
+let poin = 500
 let handler = async (m, { conn, usedPrefix }) => {
     conn.caklontong = conn.caklontong ? conn.caklontong : {}
     let id = m.chat
@@ -9,29 +9,28 @@ let handler = async (m, { conn, usedPrefix }) => {
         conn.reply(m.chat, 'Masih ada soal belum terjawab di chat ini', conn.caklontong[id][0])
         throw false
     }
-    let res = await fetch(global.API('zahir', '/api/kuis/caklontong', {}, 'apikey'))
-    if (res.status !== 200) throw await res.text()
-    let json = await res.json()
+    let res = JSON.parse(fs.readFileSync('./api/caklontong.json'))
+    let random = Math.floor(Math.random() * res.length)
+    let json = res[random]
     let caption = `
-${json.result.soal}
+${json.soal}
 
 Timeout *${(timeout / 1000).toFixed(2)} detik*
 Ketik ${usedPrefix}calo untuk bantuan
 Bonus: ${poin} XP
-
-*Note : Reply Pesan Ini Jika Ingin Menjawab Soal*
 `.trim()
     conn.caklontong[id] = [
-        await conn.reply(m.chat, caption, m),
-        json, poin,
+        await conn.sendButtonLoc(m.chat, await (await fetch(fla + 'Cak Lontong')).buffer(), caption.trim(), wm, 'BANTUAN', usedPrefix + 'calo', m),
+        json,
+        poin,
         setTimeout(() => {
-            if (conn.caklontong[id]) conn.reply(m.chat, `Waktu habis!\nJawabannya adalah *${json.result.jawaban}*\n${json.result.deskripsi}`, conn.caklontong[id][0])
+            if (conn.caklontong[id]) conn.sendButton(m.chat, `Waktu habis!\nJawabannya adalah *${json.jawaban}*\n${json.deskripsi}`, wm, 'Cak Lontong', usedPrefix + 'caklontong', conn.caklontong[id][0])
             delete conn.caklontong[id]
         }, timeout)
-    ]}
+    ]
+}
 handler.help = ['caklontong']
 handler.tags = ['game']
 handler.command = /^caklontong/i
-handler.limit = true
 
 module.exports = handler

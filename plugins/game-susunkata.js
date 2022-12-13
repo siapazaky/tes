@@ -1,40 +1,38 @@
-let fetch = require('node-fetch')
-
-let timeout = 120000
-let poin = 1500
-let tiketcoin = 1
+const fs = require('fs')
+const fetch = require('node-fetch')
+const timeout = 120000
+const poin = 500
 let handler = async (m, { conn, usedPrefix }) => {
     conn.susunkata = conn.susunkata ? conn.susunkata : {}
     let id = m.chat
     if (id in conn.susunkata) {
-        conn.reply(m.chat, 'Masih ada soal belum terjawab di chat ini', conn.susunkata[id][0])
+        conn.sendButton(m.chat, 'Masih ada soal belum terjawab di chat ini', wm, 'Bantuan', usedPrefix + 'suka', conn.susunkata[id][0])
         throw false
     }
-    let src = await (await fetch('https://raw.githubusercontent.com/BochilTeam/database/master/games/susunkata.json')).json()
-    let json = src[Math.floor(Math.random() * src.length)]
+    let res = JSON.parse(fs.readFileSync('./api/susunkata.json'))
+    let random = Math.floor(Math.random() * res.length)
+    let json = res[random]
     let caption = `
 ${json.soal}
-Tipe : ${json.tipe}
+
+Yang Berkaitan Dengan *${json.tipe}*
 
 Timeout *${(timeout / 1000).toFixed(2)} detik*
-Ketik ${usedPrefix}susunhelp untuk bantuan
-Bonus: ${poin} XP
-
-*Note : Reply Pesan Ini Jika Ingin Menjawab Soal*
-`.trim()
+Ketik *${usedPrefix}suka* untuk bantuan
+Poin: *${poin} XP*
+    `.trim()
     conn.susunkata[id] = [
-        await conn.reply(m.chat, caption, m),
-        json, poin,
-        setTimeout(() => {
-            if (conn.susunkata[id]) conn.reply(m.chat, `Waktu habis!\nJawabannya adalah *${json.jawaban}*`, conn.susunkata[id][0])
+    await conn.sendButtonLoc(m.chat, await (await fetch(fla + 'Susun Kata')).buffer(), caption, wm, 'Bantuan', usedPrefix + 'suka', m),
+    json,
+    poin,
+    setTimeout(() => {
+        if (conn.susunkata[id]) conn.sendButton(m.chat, `Waktu habis!\nJawabannya adalah *${json.jawaban}*`, wm, 'Susun Kata', usedPrefix + 'susunkata', conn.susunkata[id][0])
             delete conn.susunkata[id]
-        }, timeout)
+    }, timeout)
     ]
 }
 handler.help = ['susunkata']
 handler.tags = ['game']
 handler.command = /^susunkata/i
-handler.limit = true
-handler.group = false
 
 module.exports = handler
