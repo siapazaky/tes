@@ -27,22 +27,23 @@ module.exports = {
         global.pickRandom = pickRandom
         global.fake = global.fake
         global.fkontak = global.fkontak
+        global.logo2 = await(await fetch('https://telegra.ph/file/001123748fc80b0bb5532.png')).buffer()
         global.doc = pickRandom(["application/vnd.ms-excel", "application/vnd.openxmlformats-officedocument.presentationml.presentation", "application/msword", "application/pdf"])
-        global.img = 'https://telegra.ph/file/9214c791ee3156d6ec31c.jpg'
+        global.img = 'https://telegra.ph/file/b077c47fb8f49baa4fd8f.jpg'
         global.fla = pickRandom(global.flaaa)
         global.namabot = conn.user.name
-        global.packname = '© CUTE IQ-MD'
-        global.author = 'Made By Syah © 2022'
+        global.packname = '© '
+        global.author = '   � 2022'
         global.packname2 = 'Made With'
-        global.author2 = 'Cute Bot By Syah © 2022'
-        global.wm3 = '·͟͟͟͟͟͟͞͞͞͞͞͞Made By Syah˚'
-        global.wm2 = '© CUTE IQ-MD' + ' ' + 'By Syah'
-        global.wm = '© CUTE IQ-MD'
+        global.author2 = '    � 2022'
+        global.wm3 = '  '
+        global.wm2 = '�  ' + ' ' + ' '
+        global.wm = '�   '
         global.colong1 = 'Ciss 📸'
-        global.colong2 = 'By Haori & Syah'
+        global.colong2 = '  &  '
         global.kontak2 = [
-        ['6281365255567', 'Syah', 'OWNER SYAH', 'Syah1@support.com', true],
-        ['6282289304381', 'CUTE IQ-MD', 'Bot WhatsApp', 'Just Bot', true]
+        ['6281365255567', 'Zaky', 'Owner Animelovers', 'zaky@support.com', true],
+        ['6282289304381', 'Anime Lovers MD', 'Bot WhatsApp', 'Just Bot', true]
         ]
         global.bg = await (await fetch(img)).buffer()
         global.time = require('moment-timezone').tz('Asia/Jakarta').format('HH:mm:ss')
@@ -289,7 +290,7 @@ module.exports = {
                     if (!('delete' in chat)) chat.delete = false
                     if (!('antiLink' in chat)) chat.antiLink = true
                     if (!isNumber(chat.expired)) chat.expired = 0
-                    if (!('antiBadword' in chat)) chat.antiBadword = true
+                    if (!('antiBadword' in chat)) chat.antiBadword = false
                     if (!('antispam' in chat)) chat.antispam = true
                     if (!('antitroli' in chat)) chat.antitroli = false
                     if (!('antivirtex' in chat)) chat.antivirtex = false
@@ -315,7 +316,7 @@ module.exports = {
                     delete: false,
                     antiLink: true,
                     expired: 0,
-                    antiBadword: true,
+                    antiBadword: false,
                     antispam: true,
                     antitroli: false,
                     antivirtex: false,
@@ -670,13 +671,13 @@ module.exports = {
     status: 1,
     surface : 1,
     message: `𝗧𝗜𝗠𝗘 : ${wktu}`, 
-    orderTitle: `▮ Zaky ▸`,
+    orderTitle: `▮Zaky ▸`,
     thumbnail: action === 'add' ? ori : kelu , //Gambarnye
     sellerJid: '0@s.whatsapp.net' 
     }
     }
     }
- await conn.sendButtonDoc(id, text, wm, action == 'add' ? 'Selamat Datang' : 'Sampai Jumpa', action === 'add' ? '.intro' : 'Zaky', ftroli,{
+ await conn.sendButtonDoc(id, text, wm, action == 'add' ? 'Selamat Datang' : 'Sampai Jumpa', action === 'add' ? '.intro' : 'Ziv San', ftroli,{
   contextInfo: {mentionedJid: [user],
     externalAdReply :{ showAdAttribution: true,
     mediaType: 1, 
@@ -751,6 +752,7 @@ Untuk mematikan fitur ini, ketik
 global.dfail = async (type, m, conn) => {
     let im = global.img
     let wmo = global.wm
+    let zaky1 = global.logo2
     let ig = global.linkig
     let titl = global.titlink
     let desl = deslink
@@ -771,14 +773,14 @@ global.dfail = async (type, m, conn) => {
     /*}[type]
     if (msg) return conn.reply(m.chat, msg, m, { mentions: conn.parseMention(msg) })*/
     }[type]
-    if (msg) return conn.sendButtonDoc(m.chat, msg, wmo, 'Menu', '.menu', m, {
+    if (msg) return conn.sendButtonImg(m.chat, zaky1, msg, wmo, 'Oke', 'Oke', m, {
   mentions: conn.parseMention(msg),
-  contextInfo: { externalAdReply :{
-    mediaUrl: ig,
-    mediaType: 2,
-    description: desl, 
-    title: titl,
-    body: wmo,
+    contextInfo: { externalAdReply: { showAdAttribution: true,
+    mediaUrl: ig,
+    mediaType: 2, 
+    description: desl,
+    title: "404 Error",
+    body: wmo,
     thumbnail: await(await fetch(im)).buffer(),
     sourceUrl: gc
      }}
