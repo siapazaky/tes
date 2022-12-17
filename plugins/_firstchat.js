@@ -1,42 +1,58 @@
 let moment = require('moment-timezone')
-let fetch = require ('node-fetch')
+let fetch = require('node-fetch')
+let wm = global.wm
+let img2 = global.img
+let logo = global.logo
 let handler = m => m
 
 handler.all = async function (m) {
+let who = m.mentionedJid && m.mentionedJid[0] ? m.mentionedJid[0] : m.fromMe ? conn.user.jid : m.sender
+let username = conn.getName(who)
 
     if (m.chat.endsWith('broadcast')) return
     if (m.fromMe) return
     if (m.isGroup) return
     if (db.data.settings.groupOnly) return
     let user = global.db.data.users[m.sender]
-    let name = conn.user.name
-    let hao = `Saya Adalah AnimeloversV2 BOT What'sapp Yang Bisa Anda Gunakan Untuk Membuat Sticker, Mendownload Sesuatu, Bermain Game, Dll.
+    if (new Date - user.pc < 86400000) return // setiap 24 jam sekali 
+    await this.send3ButtonLoc(m.chat, await conn.resize(await (await fetch(img2)).buffer(), 300, 200), `
+*hai, ${ucapan()}*
 
-Tolong Jangan Spam, Telepon, Vc, Kirim Virtex.\n\n*Official Bot By @${'0'.split('@')[0]}* 
-*Powered By @${global.owner[1].split('@')[0]}*`
-    if (new Date - user.pc < 86400000) return // setiap 24 jam sekali
-        await conn.send3ButtonLoc(m.chat, logo, ` ${ucapan()}, @${m.sender.split`@`[0]}
- ${user.banned ? 'kamu dibanned' : `*Made Zaky*`} 
- `.trim(), hao, user.banned ? 'Pemilik Bot' : 'Menu', user.banned ? '!owner' : '.menu', 'Panduan penggunaan', '.tutorbot', 'Verify', '.daftar ${username}.13', m) 
-     user.pc = new Date * 1 
- } 
- 
+${user.banned ? 'kamu dibanned' : 'ɴᴏᴛᴇ>_<'}
+`.trim(), `sᴀʏᴀ ᴀᴅᴀʟᴀʜ ʙᴏᴛ ᴡʜᴀᴛsᴀᴘᴘ ʏᴀɴɢ ᴅɪʀᴀɴᴄᴀɴɢ ᴏʟᴇʜ ᴢᴀᴋʏ ᴍᴏʜᴏɴ ᴊᴀɴɢᴀɴ ᴅɪ sᴘᴀᴍ ʏᴀ ᴋᴀᴋ ᴊᴏɪɴ ᴋᴇ ɢʀᴏᴜᴘ ʙᴏᴛ sɪɴɪ\n *ɢʀᴏᴜᴘ ʙᴏᴛ ɢʀᴀᴛɪs*
+ᴊᴏɪɴ sɪɴɪ ᴅɪ ɢʀᴏᴜᴘ ʙᴏᴛ
+
+ᴀᴘᴀ ɪᴛᴜ ʙᴏᴛ? 
+ʙᴏᴛ ᴡʜᴀᴛsᴀᴘᴘ ᴀᴅᴀʟᴀʜ sᴇʙᴜᴀʜ ʀᴏʙᴏᴛ ᴜɴᴛᴜᴋ ᴍᴇᴍᴘᴇʀᴍᴜᴅᴀʜ ᴋᴀᴍᴜ ᴍᴇᴍʙᴜᴀᴛ/ᴅᴏᴡɴʟᴏᴀᴅ sᴇsᴜᴀᴛᴜ ᴜɴᴛᴜᴋ ᴋᴇᴘᴇʀʟᴜᴀɴ ᴡʜᴀᴛsᴀᴘᴘ ᴋᴀᴍᴜ sᴇᴘᴇʀᴛɪ ᴍᴇᴍʙᴜᴀᴛ sᴛɪᴄᴋᴇʀ, ᴅᴏᴡɴʟᴏᴀᴅ ᴠɪᴅᴇᴏ ʏᴏᴜᴛᴜʙᴇ, ᴅᴏᴡɴʟᴏᴀᴅ ᴠɪᴅᴇᴏ ᴛɪᴋᴛᴏᴋ, ᴅʟʟ. 
+
+ғɪᴛᴜʀ ʙᴏᴛ:𝟸𝟻𝟶+
+◩ᴀɴᴛɪʙᴜɢ ✓
+◩ᴀɴᴛɪᴠɪʀᴜs ✓
+◩ᴀɴᴛɪʟɪɴᴋ ✓
+
+*ᴅɪsɪɴɪ ɢᴄ ʙᴏᴛ ɴʏᴀ*
+_https://chat.whatsapp.com/HqUkHx75YT9IuvKrtBCW9O_
+
+*ᴏᴡɴᴇʀ*
+_http://wa.me/6281365255567`, user.register ? '⋮☰ Menu' : 'Verify', user.register ? '.menu' : `.daftar ${username}.13`, 'Rules', '.rules', 'Owner', '.owner', m)
+    user.pc = new Date * 1
+}
 
 module.exports = handler
 function ucapan() {
     const time = moment.tz('Asia/Jakarta').format('HH')
-    res = "Selamat dinihari"
+    res = "Selamat dinihari ☀️"
     if (time >= 4) {
-        res = "Selamat pagi 🌅"
+        res = "Good Morning 🌄"
     }
     if (time > 10) {
-        res = "Selamat siang 🏞️"
+        res = "Good Afternoon ☀️"
     }
     if (time >= 15) {
-        res = "Selamat sore 🌇"
+        res = "Good Afternoon 🌇"
     }
     if (time >= 18) {
-        res = "Selamat malam 🌌"
+        res = "Good Night 🌙"
     }
     return res
 }
