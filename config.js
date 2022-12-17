@@ -41,7 +41,7 @@ global.APIKeys = { // APIKey Here
 
 global.linkyt = 'https://youtu.be/60yZO4UQKdI'
 global.WM = 'Anime Lovers V2 By Zaky'
-global.linkgc = 'https://chat.whatsapp.com/EUvkNwsKYXw9seQ9s8Wby8'
+global.linkgc = 'https://chat.whatsapp.com/HqUkHx75YT9IuvKrtBCW9O'
 global.linkig = 'https://www.instagram.com/the.sad.boy01'
 global.deslink = ''
 global.logo = 'https://telegra.ph/file/001123748fc80b0bb5532.png'
