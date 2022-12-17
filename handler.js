@@ -27,23 +27,22 @@ module.exports = {
         global.pickRandom = pickRandom
         global.fake = global.fake
         global.fkontak = global.fkontak
-        global.logo2 = await(await fetch('https://telegra.ph/file/001123748fc80b0bb5532.png')).buffer()
         global.doc = pickRandom(["application/vnd.ms-excel", "application/vnd.openxmlformats-officedocument.presentationml.presentation", "application/msword", "application/pdf"])
         global.img = 'https://telegra.ph/file/b077c47fb8f49baa4fd8f.jpg'
         global.fla = pickRandom(global.flaaa)
         global.namabot = conn.user.name
-        global.packname = '© '
-        global.author = '   � 2022'
+        global.packname = '© ANIME LOVERS MD'
+        global.author = 'Made By Zaky © 2022'
         global.packname2 = 'Made With'
-        global.author2 = '    � 2022'
-        global.wm3 = '  '
-        global.wm2 = '�  ' + ' ' + ' '
-        global.wm = '�   '
+        global.author2 = 'Anime Lovers Bot By Zaky� 2022'
+        global.wm3 = '·͟͟͟͟͟͟͞͞͞͞͞͞Made By Syah˚'
+        global.wm2 = '© Anime Lovers' + ' ' + 'By Zaky'
+        global.wm = '© Made By Zaky'
         global.colong1 = 'Ciss 📸'
-        global.colong2 = '  &  '
+        global.colong2 = 'By Miku & zaky'
         global.kontak2 = [
-        ['6281365255567', 'Zaky', 'Owner Animelovers', 'zaky@support.com', true],
-        ['6282289304381', 'Anime Lovers MD', 'Bot WhatsApp', 'Just Bot', true]
+        ['6281365255567', 'Syah', 'OWNER BOT', 'Zaky@support.com', true],
+        ['6282289304381', 'Animelovers', 'Bot WhatsApp', 'Just Bot', true]
         ]
         global.bg = await (await fetch(img)).buffer()
         global.time = require('moment-timezone').tz('Asia/Jakarta').format('HH:mm:ss')
@@ -671,13 +670,13 @@ module.exports = {
     status: 1,
     surface : 1,
     message: `𝗧𝗜𝗠𝗘 : ${wktu}`, 
-    orderTitle: `▮Zaky ▸`,
+    orderTitle: `▮ Zaky ▸`,
     thumbnail: action === 'add' ? ori : kelu , //Gambarnye
     sellerJid: '0@s.whatsapp.net' 
     }
     }
     }
- await conn.sendButtonDoc(id, text, wm, action == 'add' ? 'Selamat Datang' : 'Sampai Jumpa', action === 'add' ? '.intro' : 'Ziv San', ftroli,{
+ await conn.sendButtonDoc(id, text, wm, action == 'add' ? 'Selamat Datang' : 'Sampai Jumpa', action === 'add' ? '.intro' : 'Zaky', ftroli,{
   contextInfo: {mentionedJid: [user],
     externalAdReply :{ showAdAttribution: true,
     mediaType: 1, 
@@ -752,7 +751,6 @@ Untuk mematikan fitur ini, ketik
 global.dfail = async (type, m, conn) => {
     let im = global.img
     let wmo = global.wm
-    let zaky1 = global.logo2
     let ig = global.linkig
     let titl = global.titlink
     let desl = deslink
@@ -773,14 +771,14 @@ global.dfail = async (type, m, conn) => {
     /*}[type]
     if (msg) return conn.reply(m.chat, msg, m, { mentions: conn.parseMention(msg) })*/
     }[type]
-    if (msg) return conn.sendButtonImg(m.chat, zaky1, msg, wmo, 'Oke', 'Oke', m, {
+    if (msg) return conn.sendButtonDoc(m.chat, msg, wmo, 'Menu', '.menu', m, {
   mentions: conn.parseMention(msg),
-    contextInfo: { externalAdReply: { showAdAttribution: true,
-    mediaUrl: ig,
-    mediaType: 2, 
-    description: desl,
-    title: "404 Error",
-    body: wmo,
+  contextInfo: { externalAdReply :{
+    mediaUrl: ig,
+    mediaType: 2,
+    description: desl, 
+    title: titl,
+    body: wmo,
     thumbnail: await(await fetch(im)).buffer(),
     sourceUrl: gc
      }}
